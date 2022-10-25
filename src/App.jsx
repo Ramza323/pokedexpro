@@ -8,7 +8,7 @@ function App() {
 
   const [searchValue, setSearchValue] = useState('pikachu')
   const [toSearch, setToSearch] = useState('')
-  const [favorites, setFavorites] = useState(['pikachu', 'abra', 'dratini'])
+  const [favorites, setFavorites] = useState([])
 
   return (
     <>
