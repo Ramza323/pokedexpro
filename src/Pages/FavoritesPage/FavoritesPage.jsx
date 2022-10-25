@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../../components/Card/Card";
+import Card from "../../Components/Card/Card.jsx";
 import styled from "styled-components";
 
 const ContainerTela = styled.div`
