@@ -1,5 +1,4 @@
 import React from "react";
-import { useState, useEffect } from "react";
 import { useGetPokemonSingle } from "../../Hooks/useGetPokemonSingle";
 import PokeCard from "../../Components/Pokecard/Pokecard.jsx";
 import {
@@ -7,21 +6,15 @@ import {
   ContainerScroll,
 } from "./CardStyles";
 
-const Card = ({ favorites }) => {
+const Card = ({ favorites, setFavorites }) => {
 
-  
-  const { pokemon, isLoading } = useGetPokemonSingle(favorites)
 
-  //console.log(pokemonInfo)
-
+  const { pokemon } = useGetPokemonSingle(favorites)
   const mapPokemons =
-  //console.log(pokeList)
     pokemon &&
     pokemon.map((pokemonInfo) => {
       return (
-        <>
-          <PokeCard pokemonInfo={pokemonInfo} />
-        </>
+        <PokeCard key={pokemonInfo.name} pokemonInfo={pokemonInfo} setFavorites={setFavorites} />
       );
     });
 

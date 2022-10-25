@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-export const Loader = styled.div`
-
-`
-
 export const ContainerTela = styled.div`
 /* height: 57vh; */
 width: 75%;

@@ -29,47 +29,6 @@ const ContainerTela = styled.div`
   }
 ;`
 
-const Voltar = styled.div`
-  position: absolute; 
-  margin-left: 94vw;
-  display: flex;
-  margin-top: -35vh; 
-  align-self: center; 
-  border-top: 25px solid transparent;
-  border-bottom: 25px solid transparent; 
-  border-right:25px solid #ffee00; 
-  cursor: pointer;
-  animation: pulse-yellow 1s infinite;
-  @keyframes pulse-yellow {
-  0% {
-    transform: scale(0.95);
-    filter: drop-shadow(rgba(0, 0, 0, 0.35) 5px 5px 15px);
-  }
-  
-  70% {
-    transform: scale(1);
-    border-top: 25px solid transparent;
-  border-bottom: 25px solid transparent; 
-  filter: drop-shadow(rgba(0, 0, 0, 0.35) 5px 5px 15px);
-  }
-  
-  100% {
-    transform: scale(0.95);
-    border-top: 25px solid transparent;
-    border-bottom: 25px solid transparent; 
-    filter: drop-shadow(rgba(219, 198, 14, 0.892) 3px 3px 3px);
-  }
-}
-  :hover{
-    border-right:25px solid #ffc400; 
-  }
-
-  @media(max-width: 600px) { 
-    margin-left: 88vw;
-    margin-top: -35vh
-    }
-`;
-
 
 const SmallButtons2 = styled.div`
 display: flex; 
@@ -119,7 +78,7 @@ button {
 
 `
 
-const FavoritesPage = ({ favorites }) => {
+const FavoritesPage = ({ favorites, setFavorites }) => {
 
     return (
         <>
@@ -128,10 +87,9 @@ const FavoritesPage = ({ favorites }) => {
                     <button></button>
                     <button></button>
                 </SmallButtons2>
-                <Card favorites={favorites} />
+                <Card favorites={favorites} setFavorites={setFavorites} />
 
             </ContainerTela>
-            <Voltar onClick={() => { goToVoltar(navigate) }}></Voltar>
         </>
     );
 };

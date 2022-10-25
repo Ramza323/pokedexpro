@@ -8,15 +8,15 @@ function App() {
 
   const [searchValue, setSearchValue] = useState('pikachu')
   const [toSearch, setToSearch] = useState('')
-  const [favorites, setFavorites] = useState(['pikachu', 'abra'])
+  const [favorites, setFavorites] = useState(['pikachu', 'abra', 'dratini'])
 
   return (
     <>
       <BrowserRouter>
         <Header pokemonName={searchValue} setToSearch={setToSearch} />
         <Routes>
-          <Route index path="/" element={<DetailPage toSearch={toSearch} pokemonName={searchValue} setSearchValue={setSearchValue} />} />
-          <Route path= "Favorite" element = {<FavoritesPage toSearch={toSearch} pokemonName={searchValue} setSearchValue={setSearchValue} favorites={favorites} />} />
+          <Route index path="/" element={<DetailPage toSearch={toSearch} pokemonName={searchValue} setSearchValue={setSearchValue} setFavorites={setFavorites} favorites={favorites} />} />
+          <Route path= "Favorite" element = {<FavoritesPage toSearch={toSearch} pokemonName={searchValue} setSearchValue={setSearchValue} favorites={favorites} setFavorites={setFavorites} />} />
         </Routes>
       </BrowserRouter>
     </>

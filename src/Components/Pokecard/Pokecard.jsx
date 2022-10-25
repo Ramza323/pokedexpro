@@ -17,16 +17,19 @@ const Title = styled.div`
 `
 
 
-const PokeCard = ({ pokemonInfo }) => {
-  // const [pokemonInfo, setPokemon] = useState([]);
-  const [pokedexCart, setPokedexCart] = useState()
+const PokeCard = ({ pokemonInfo, setFavorites }) => {
 
-
+  const removeFavPoke = (e) => {
+    const selectedPokemon = e.firstChild.alt;
+    setFavorites(current => {
+      return current.filter(validate => validate !== selectedPokemon)
+    })
+  }
 
   return (
     <CardContainer>
       <CardFather>
-        <div onClick={() => IdPokemon()}>
+        <div onClick={(e) => removeFavPoke(e.target)}>
           <Title>
             <h3 >{pokemonInfo.name && <>{pokemonInfo.name}</>} </h3><h5>#{pokemonInfo.id}</h5>
           </Title>

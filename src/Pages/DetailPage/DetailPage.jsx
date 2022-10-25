@@ -10,15 +10,25 @@ import {
     Voltar,
     BarraDeProgresso,
     SmallButtons2,
-    Input
+    Input,
 } from "./PokeStyles";
 import error from "../../assets/404.png"
 import loaderball from "../../assets/pokeball.gif"
 import { useGetPokemon } from "../../Hooks/useGetPokemon";
 
 
-const DetailPage = ({ pokemonName, setSearchValue, toSearch }) => {
-    const {pokemon, isLoading} = useGetPokemon(pokemonName, toSearch)
+const DetailPage = ({ pokemonName, setSearchValue, toSearch, setFavorites, favorites }) => {
+    const { pokemon, isLoading } = useGetPokemon(pokemonName, toSearch)
+
+    const setFavoritePoke = (pokeName) => {
+        let message = 'Pokemon existente en favoritos';
+        if (!favorites.includes(pokeName)) {
+            setFavorites(current => [...current, pokeName])
+            message = 'Pokemon agregado a favoritos'
+        }
+        alertify.confirm(message, function(){}).autoOk(2).set('frameless', true); 
+
+    }
 
     let Total = 0
 
@@ -68,7 +78,7 @@ const DetailPage = ({ pokemonName, setSearchValue, toSearch }) => {
 
                 </Container>
             </ContainerTela>
-            <Voltar onClick={() => { goToVoltar(navigate) }}></Voltar>
+            <Voltar onClick={() => { setFavoritePoke(pokemon.name) }}></Voltar>
         </div>
     );
 };
