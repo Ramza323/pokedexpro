@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useGetPokemonSingle } from "../../Hooks/useGetPokemonSingle";
-import PokeCard from "../../components/Pokecard/Pokecard.jsx";
+import PokeCard from "../../Components/Pokecard/Pokecard.jsx";
 import {
   Cards,
   ContainerScroll,
